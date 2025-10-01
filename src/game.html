@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="./css/game.css">
+</head>
+<body>
+    <div class="game-container" id="gameContainer">
+        <div class="hud">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="collectibles">Items: <span id="collectibles">0</span>/<span id="totalCollectibles">0</span></div>
+            <div class="level">Level: <span id="currentLevel">1</span></div>
+            <div class="timer">Time: <span id="timer">60</span>s</div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <button class="btn-back" onclick="goToLevels()">Levels</button>
+        
+        <div class="game-over-screen" id="gameOverScreen" style="display: none;">
+            <div class="game-over-content">
+                <h2 id="gameOverTitle">Level Complete!</h2>
+                <p id="gameOverMessage">Well done!</p>
+                <div class="game-over-buttons">
+                    <button onclick="restartLevel()">Restart</button>
+                    <button onclick="nextLevel()">Next Level</button>
+                    <button onclick="goToLevels()">Level Select</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./modules/player.js"></script>
+    <script src="./modules/collectible.js"></script>
+    <script src="./modules/collision.js"></script>
+    <script src="./js/game.js"></script>
+</body>
+</html>

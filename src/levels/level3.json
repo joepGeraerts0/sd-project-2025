@@ -1,0 +1,22 @@
+{
+  "id": 3,
+  "name": "Castle Approach",
+  "background": "Castle.png",
+  "playerStart": { "x": 50, "y": 400 },
+  "collectibles": [
+    { "x": 180, "y": 350, "type": "coin" },
+    { "x": 320, "y": 280, "type": "gem" },
+    { "x": 480, "y": 220, "type": "coin" },
+    { "x": 620, "y": 160, "type": "gem" }
+  ],
+  "obstacles": [
+    { "x": 150, "y": 400, "width": 80, "height": 20, "type": "platform" },
+    { "x": 290, "y": 330, "width": 80, "height": 20, "type": "platform" },
+    { "x": 450, "y": 270, "width": 80, "height": 20, "type": "platform" },
+    { "x": 590, "y": 210, "width": 80, "height": 20, "type": "platform" },
+    { "x": 720, "y": 160, "width": 60, "height": 20, "type": "platform" }
+  ],
+  "exit": { "x": 750, "y": 130 },
+  "requiredItems": 3,
+  "timeLimit": 120
+}

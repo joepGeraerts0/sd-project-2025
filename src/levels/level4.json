@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "name": "Cave Entrance Challenge",
+  "background": "Opening cave.jpg",
+  "playerStart": { "x": 50, "y": 400 },
+  "collectibles": [
+    { "x": 130, "y": 360, "type": "coin" },
+    { "x": 280, "y": 300, "type": "gem" },
+    { "x": 380, "y": 220, "type": "coin" },
+    { "x": 520, "y": 180, "type": "special" },
+    { "x": 650, "y": 120, "type": "gem" },
+    { "x": 720, "y": 80, "type": "special" }
+  ],
+  "obstacles": [
+    { "x": 100, "y": 400, "width": 80, "height": 20, "type": "platform" },
+    { "x": 250, "y": 350, "width": 80, "height": 20, "type": "platform" },
+    { "x": 300, "y": 250, "width": 20, "height": 120, "type": "wall" },
+    { "x": 180, "y": 290, "width": 60, "height": 20, "type": "platform" },
+    { "x": 350, "y": 270, "width": 80, "height": 20, "type": "platform" },
+    { "x": 320, "y": 200, "width": 40, "height": 20, "type": "platform" },
+    { "x": 480, "y": 230, "width": 100, "height": 20, "type": "platform" },
+    { "x": 520, "y": 120, "width": 20, "height": 130, "type": "wall" },
+    { "x": 450, "y": 160, "width": 60, "height": 20, "type": "platform" },
+    { "x": 620, "y": 170, "width": 80, "height": 20, "type": "platform" },
+    { "x": 690, "y": 130, "width": 80, "height": 20, "type": "platform" }
+  ],
+  "exit": { "x": 750, "y": 100 },
+  "requiredItems": 4,
+  "timeLimit": 180
+}
