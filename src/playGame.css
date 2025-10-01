@@ -6,7 +6,8 @@
 }
 body{
     background-image: url(./img/360_F_883152034_SPz8sW7Aj9W2TqUCfg1HuKBlm81OddMv.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    
+    background-position: center center;
+    min-height: 100vh;
 }
