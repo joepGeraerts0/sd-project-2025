@@ -10,3 +10,8 @@ body{
     background-repeat: no-repeat;
     background-position-y: 10%;
 }
+.btn-play{
+    display: block;
+    padding: 9px 16px;
+    cursor: pointer;
+}
