@@ -6,5 +6,7 @@
 }
 body{
     background-image:url(/src/img/Beging-Background.png);
-height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 10%;
 }
