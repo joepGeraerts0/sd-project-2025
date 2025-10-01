@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+body{
+    background-image:url(/src/img/Beging-Background.png);
+height: 100px;
+}
