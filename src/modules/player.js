@@ -1,6 +1,6 @@
 const PLAYER_CONFIG = {
-    WIDTH: 30,
-    HEIGHT: 30,
+    WIDTH: 60,
+    HEIGHT: 60,
     SPEED: 5,
     JUMP_POWER: 12,
     WALL_JUMP_POWER: 10,
@@ -8,8 +8,6 @@ const PLAYER_CONFIG = {
     WALL_SLIDE_SPEED: 2,
     WALL_SLIDE_TIMER: 15,
     WALL_JUMP_SPEED_MULTIPLIER: 1.5
-
-
 };
 
 class Player {
@@ -29,22 +27,35 @@ class Player {
         this.wallJumpPower = PLAYER_CONFIG.WALL_JUMP_POWER;
         this.wallJumpDirection = 0;
         this.wallSlideTimer = 0;
-        
-        this.keys = {
-            left: false,
-            right: false,
-            up: false
-        }; 
-        
+
+        this.keys = { left: false, right: false, up: false };
+
+        // для напрямку (-1 = вліво, 1 = вправо)
+        this.facing = 1;
+
+        // sprite (лицар)
+        this.sprite = new Image();
+        this.spriteLoaded = false;
+        // очікуваний шлях: ./img/knight.png
+        this.sprite.src = './img/player.png'
+        this.sprite.onload = () => {
+            this.spriteLoaded = true;
+            // якщо хочете підлаштувати розмір під реальний розмір спрайта:
+            // this.width = Math.min(this.width, this.sprite.naturalWidth);
+            // this.height = Math.min(this.height, this.sprite.naturalHeight);
+        };
+        this.sprite.onerror = () => {
+            console.warn('Не вдалося завантажити спрайт гравця: ./img/knight.png');
+        };
+
         this.setupControls();
     }
 
-    
-    
     setupControls() {
         document.addEventListener('keydown', (e) => {
+            // Залишив preventDefault як у вашому оригіналі.
             e.preventDefault();
-            switch(e.code) {
+            switch (e.code) {
                 case 'ArrowLeft':
                 case 'KeyA':
                     this.keys.left = true;
@@ -60,10 +71,10 @@ class Player {
                     break;
             }
         });
-        
+
         document.addEventListener('keyup', (e) => {
             e.preventDefault();
-            switch(e.code) {
+            switch (e.code) {
                 case 'ArrowLeft':
                 case 'KeyA':
                     this.keys.left = false;
@@ -80,31 +91,33 @@ class Player {
             }
         });
     }
-    
+
     update() {
         if (this.velocityY > 0) {
             this.onGround = false;
         }
-        
+
         this.handleInput();
         this.applyPhysics();
         this.constrainToCanvas();
-        
+
         if (this.wallSlideTimer > 0) {
             this.wallSlideTimer--;
         }
     }
-    
+
     handleInput() {
         this.velocityX = 0;
-        
+
         if (this.keys.left) {
             this.velocityX = -this.speed;
+            this.facing = -1;
         }
         if (this.keys.right) {
             this.velocityX = this.speed;
+            this.facing = 1;
         }
-        
+
         if (this.keys.up) {
             if (this.onGround) {
                 this.velocityY = -this.jumpPower;
@@ -117,34 +130,34 @@ class Player {
             }
         }
     }
-    
+
     applyPhysics() {
         if (this.onWall && !this.onGround && this.velocityY > 0) {
             this.velocityY = Math.min(this.velocityY, this.wallSlideSpeed);
         } else {
             this.velocityY += this.gravity;
         }
-        
+
         this.x += this.velocityX;
         this.y += this.velocityY;
     }
-    
+
     constrainToCanvas() {
         const canvas = document.getElementById('gameCanvas');
         if (!canvas) return;
-        
+
         if (this.x < 0) this.x = 0;
         if (this.x + this.width > canvas.width) {
             this.x = canvas.width - this.width;
         }
-        
+
         if (this.y + this.height >= canvas.height) {
             this.y = canvas.height - this.height;
             this.velocityY = 0;
             this.onGround = true;
         }
     }
-    
+
     getBounds() {
         return {
             x: this.x,
@@ -155,27 +168,47 @@ class Player {
             bottom: this.y + this.height
         };
     }
-    
+
     render(ctx) {
         ctx.save();
-        
+
+        // Додаємо невеликий тіньовий ефект, якщо гравець на стіні (як було раніше з кольорами)
         if (this.onWall) {
-            ctx.fillStyle = '#FF6B6B';
             ctx.shadowBlur = 10;
             ctx.shadowColor = '#FF6B6B';
         } else {
-            ctx.fillStyle = '#4CAF50';
+            ctx.shadowBlur = 0;
+            ctx.shadowColor = 'transparent';
         }
-        
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        
-        ctx.shadowBlur = 0;
-        ctx.fillStyle = this.onWall ? '#D32F2F' : '#2E7D32';
-        ctx.fillRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4);
-        
-        ctx.fillStyle = this.onWall ? '#FF8A80' : '#66BB6A';
-        ctx.fillRect(this.x + 4, this.y + 4, this.width - 8, this.height - 8);
-        
+
+        if (this.spriteLoaded) {
+            // Малюємо картинку, враховуючи напрямок (фліп по X)
+            if (this.facing === -1) {
+                // перевертаємо по X навколо центру спрайта
+                ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+                ctx.scale(-1, 1);
+                ctx.drawImage(this.sprite, -this.width / 2, -this.height / 2, this.width, this.height);
+            } else {
+                ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);
+            }
+        } else {
+            // Резервний варіант — прямокутник (щоб не було нічого)
+            if (this.onWall) {
+                ctx.fillStyle = '#FF6B6B';
+            } else {
+                ctx.fillStyle = '#4CAF50';
+            }
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+
+            ctx.shadowBlur = 0;
+            ctx.fillStyle = this.onWall ? '#D32F2F' : '#2E7D32';
+            ctx.fillRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4);
+
+            ctx.fillStyle = this.onWall ? '#FF8A80' : '#66BB6A';
+            ctx.fillRect(this.x + 4, this.y + 4, this.width - 8, this.height - 8);
+        }
+
+        // Відновлюємо стан контексту
         ctx.restore();
     }
 }
