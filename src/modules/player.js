@@ -41,8 +41,6 @@ class Player {
     }
 
     
-
-
     setupControls() {
         document.addEventListener('keydown', (e) => {
             e.preventDefault();
