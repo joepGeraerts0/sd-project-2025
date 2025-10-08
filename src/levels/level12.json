@@ -1,0 +1,19 @@
+{
+  "id": 12,
+  "name": "Back to Castle",
+  "background": "Castle.png",
+  "playerStart": { "x": 50, "y": 400 },
+  "collectibles": [
+    { "x": 200, "y": 350, "type": "coin" },
+    { "x": 400, "y": 300, "type": "coin" },
+    { "x": 600, "y": 250, "type": "gem" }
+  ],
+  "obstacles": [
+    { "x": 250, "y": 400, "width": 100, "height": 20, "type": "platform" },
+    { "x": 450, "y": 350, "width": 100, "height": 20, "type": "platform" },
+    { "x": 650, "y": 300, "width": 100, "height": 20, "type": "platform" }
+  ],
+  "exit": { "x": 700, "y": 270 },
+  "requiredItems": 2,
+  "timeLimit": 60
+}

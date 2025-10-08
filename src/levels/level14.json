@@ -1,0 +1,40 @@
+{
+  "id": 14,
+  "name": "Midden op tak",
+  "background": "taklopen.png",
+  "playerStart": { "x": 50, "y": 400 },
+  "collectibles": [
+    { "x": 120, "y": 370, "type": "coin" },
+    { "x": 200, "y": 320, "type": "gem" },
+    { "x": 280, "y": 270, "type": "coin" },
+    { "x": 380, "y": 220, "type": "special" },
+    { "x": 480, "y": 170, "type": "gem" },
+    { "x": 580, "y": 120, "type": "special" },
+    { "x": 680, "y": 90, "type": "gem" },
+    { "x": 730, "y": 50, "type": "special" }
+  ],
+  "obstacles": [
+    { "x": 90, "y": 410, "width": 80, "height": 20, "type": "platform" },
+    { "x": 170, "y": 370, "width": 80, "height": 20, "type": "platform" },
+    { "x": 130, "y": 320, "width": 60, "height": 20, "type": "platform" },
+    { "x": 250, "y": 350, "width": 80, "height": 20, "type": "platform" },
+    { "x": 220, "y": 290, "width": 60, "height": 20, "type": "platform" },
+    { "x": 320, "y": 310, "width": 80, "height": 20, "type": "platform" },
+    { "x": 280, "y": 250, "width": 40, "height": 20, "type": "platform" },
+    { "x": 350, "y": 270, "width": 80, "height": 20, "type": "platform" },
+    { "x": 410, "y": 220, "width": 60, "height": 20, "type": "platform" },
+    { "x": 330, "y": 180, "width": 40, "height": 20, "type": "platform" },
+    { "x": 450, "y": 200, "width": 80, "height": 20, "type": "platform" },
+    { "x": 480, "y": 150, "width": 60, "height": 20, "type": "platform" },
+    { "x": 420, "y": 110, "width": 40, "height": 20, "type": "platform" },
+    { "x": 550, "y": 170, "width": 80, "height": 20, "type": "platform" },
+    { "x": 580, "y": 120, "width": 60, "height": 20, "type": "platform" },
+    { "x": 520, "y": 80, "width": 40, "height": 20, "type": "platform" },
+    { "x": 650, "y": 140, "width": 80, "height": 20, "type": "platform" },
+    { "x": 680, "y": 100, "width": 60, "height": 20, "type": "platform" },
+    { "x": 720, "y": 70, "width": 60, "height": 20, "type": "platform" }
+  ],
+  "exit": { "x": 750, "y": 40 },
+  "requiredItems": 6,
+  "timeLimit": 250
+}
