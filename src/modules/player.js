@@ -41,7 +41,6 @@ class Player {
     
     setupControls() {
         document.addEventListener('keydown', (e) => {
-            // Залишив preventDefault як у вашому оригіналі.
             e.preventDefault();
             switch (e.code) {
                 case 'ArrowLeft':
@@ -160,7 +159,6 @@ class Player {
     render(ctx) {
         ctx.save();
 
-        // Додаємо невеликий тіньовий ефект, якщо гравець на стіні (як було раніше з кольорами)
         if (this.onWall) {
             ctx.shadowBlur = 10;
             ctx.shadowColor = '#FF6B6B';
@@ -170,9 +168,7 @@ class Player {
         }
 
         if (this.spriteLoaded) {
-            // Малюємо картинку, враховуючи напрямок (фліп по X)
             if (this.facing === -1) {
-                // перевертаємо по X навколо центру спрайта
                 ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
                 ctx.scale(-1, 1);
                 ctx.drawImage(this.sprite, -this.width / 2, -this.height / 2, this.width, this.height);
@@ -180,7 +176,6 @@ class Player {
                 ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);
             }
         } else {
-            // Резервний варіант — прямокутник (щоб не було нічого)
             if (this.onWall) {
                 ctx.fillStyle = '#FF6B6B';
             } else {
@@ -196,7 +191,6 @@ class Player {
             ctx.fillRect(this.x + 4, this.y + 4, this.width - 8, this.height - 8);
         }
 
-        // Відновлюємо стан контексту
         ctx.restore();
     }
 }
