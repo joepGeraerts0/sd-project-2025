@@ -8,6 +8,8 @@ const PLAYER_CONFIG = {
     WALL_SLIDE_SPEED: 2,
     WALL_SLIDE_TIMER: 15,
     WALL_JUMP_SPEED_MULTIPLIER: 1.5
+
+
 };
 
 class Player {
@@ -32,10 +34,12 @@ class Player {
             left: false,
             right: false,
             up: false
-        };
+        }; 
         
         this.setupControls();
     }
+
+    
     
     setupControls() {
         document.addEventListener('keydown', (e) => {
