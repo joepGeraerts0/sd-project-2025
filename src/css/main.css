@@ -42,17 +42,18 @@ body {
 }
 
 .menu-title {
-    color: #fff;
-    font-size: 3.2rem;
-    font-weight: bold;
+    color: #e9d8a6;
+    font-size: 3.4rem;
+    font-weight: 900;
     margin-bottom: 36px;
     letter-spacing: 3px;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 2px 8px #000;
-    background: linear-gradient(45deg, #fff, #ffeb3b, #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: titleGlow 3s ease-in-out infinite alternate;
+    font-family: 'UnifrakturCook', 'Cinzel Decorative', 'IM Fell English SC', serif;
+    text-shadow: 0 2px 8px #000, 0 0 12px #b08968, 0 0 2px #fff;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    animation: none;
 }
 
 @keyframes titleGlow {
