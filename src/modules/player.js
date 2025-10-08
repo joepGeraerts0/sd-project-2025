@@ -1,6 +1,6 @@
 const PLAYER_CONFIG = {
-    WIDTH: 60,
-    HEIGHT: 60,
+    WIDTH: 50,
+    HEIGHT: 50,
     SPEED: 5,
     JUMP_POWER: 12,
     WALL_JUMP_POWER: 10,
@@ -27,18 +27,24 @@ class Player {
         this.wallJumpPower = PLAYER_CONFIG.WALL_JUMP_POWER;
         this.wallJumpDirection = 0;
         this.wallSlideTimer = 0;
-        
-        this.keys = {
-            left: false,
-            right: false,
-            up: false
-        }; 
-        
+
+        this.keys = { left: false, right: false, up: false };
+
+        this.facing = 1;
+
+        this.sprite = new Image();
+        this.spriteLoaded = false;
+        this.sprite.src = './img/player.png';
+        this.sprite.onload = () => {
+            this.spriteLoaded = true;
+        };
+        this.sprite.onerror = () => {
+            console.warn('Не вдалося завантажити спрайт гравця: ./img/knight.png');
+        };
+
         this.setupControls();
     }
 
-    
-    
     setupControls() {
         document.addEventListener('keydown', (e) => {
             e.preventDefault();
