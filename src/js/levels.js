@@ -1,5 +1,5 @@
 const LEVEL_CONFIG = {
-    TOTAL_LEVELS: 6,
+    TOTAL_LEVELS: 7,
     TRANSITION_DURATION: 600
 };
 

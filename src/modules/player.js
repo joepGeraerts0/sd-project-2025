@@ -31,7 +31,6 @@ class Player {
         this.keys = { left: false, right: false, up: false };
 
         this.facing = 1;
-
         this.sprite = new Image();
         this.spriteLoaded = false;
         this.sprite.src = './img/player.png';
