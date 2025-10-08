@@ -35,12 +35,14 @@ class Player {
             right: false,
             up: false
         }; 
+    
         
         this.setupControls();
     }
 
     
-    
+
+
     setupControls() {
         document.addEventListener('keydown', (e) => {
             e.preventDefault();
