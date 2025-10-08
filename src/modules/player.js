@@ -27,30 +27,18 @@ class Player {
         this.wallJumpPower = PLAYER_CONFIG.WALL_JUMP_POWER;
         this.wallJumpDirection = 0;
         this.wallSlideTimer = 0;
-
-        this.keys = { left: false, right: false, up: false };
-
-        // для напрямку (-1 = вліво, 1 = вправо)
-        this.facing = 1;
-
-        // sprite (лицар)
-        this.sprite = new Image();
-        this.spriteLoaded = false;
-        // очікуваний шлях: ./img/knight.png
-        this.sprite.src = './img/player.png'
-        this.sprite.onload = () => {
-            this.spriteLoaded = true;
-            // якщо хочете підлаштувати розмір під реальний розмір спрайта:
-            // this.width = Math.min(this.width, this.sprite.naturalWidth);
-            // this.height = Math.min(this.height, this.sprite.naturalHeight);
-        };
-        this.sprite.onerror = () => {
-            console.warn('Не вдалося завантажити спрайт гравця: ./img/knight.png');
-        };
-
+        
+        this.keys = {
+            left: false,
+            right: false,
+            up: false
+        }; 
+        
         this.setupControls();
     }
 
+    
+    
     setupControls() {
         document.addEventListener('keydown', (e) => {
             // Залишив preventDefault як у вашому оригіналі.
