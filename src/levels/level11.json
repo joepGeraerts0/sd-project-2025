@@ -1,7 +1,7 @@
 {
-  "id": 10,
-  "name": "Burgers burgers naar buiten brengen",
-  "background": "bevrijding.png",
+  "id": 11,
+  "name": "Burgers gered",
+  "background": "naarbuiten.png",
   "playerStart": { "x": 50, "y": 400 },
   "collectibles": [
     { "x": 120, "y": 370, "type": "coin" },
