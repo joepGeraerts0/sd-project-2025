@@ -1,7 +1,7 @@
 const GAME_CONFIG = {
     CANVAS_WIDTH: 800,
     CANVAS_HEIGHT: 500,
-    MAX_LEVELS: 6,
+    MAX_LEVELS: 20,
     PARTICLE_COUNT: 8,
     PARTICLE_DECAY: 0.02
 };
@@ -333,18 +333,56 @@ class Game {
     renderObstacles() {
         this.obstacles.forEach(obstacle => {
             if (obstacle.type === 'wall') {
-                this.ctx.fillStyle = '#654321';
+                this.ctx.save();
+                const grad = this.ctx.createLinearGradient(obstacle.x, obstacle.y, obstacle.x + obstacle.width, obstacle.y + obstacle.height);
+                grad.addColorStop(0, '#7a5c36');
+                grad.addColorStop(0.5, '#b08d57');
+                grad.addColorStop(1, '#4e331a');
+                this.ctx.fillStyle = grad;
                 this.ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
-                
-                this.ctx.fillStyle = '#8B4513';
-                this.ctx.fillRect(obstacle.x, obstacle.y, 3, obstacle.height);
-                this.ctx.fillRect(obstacle.x + obstacle.width - 3, obstacle.y, 3, obstacle.height);
+
+                this.ctx.strokeStyle = 'rgba(60,40,20,0.25)';
+                this.ctx.lineWidth = 2;
+                for (let y = obstacle.y + 8; y < obstacle.y + obstacle.height; y += 16) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(obstacle.x, y);
+                    this.ctx.lineTo(obstacle.x + obstacle.width, y);
+                    this.ctx.stroke();
+                }
+                for (let y = 0; y < Math.floor(obstacle.height / 16); y++) {
+                    for (let x = 16 * (y % 2); x < obstacle.width; x += 32) {
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(obstacle.x + x, obstacle.y + y * 16);
+                        this.ctx.lineTo(obstacle.x + x, obstacle.y + (y + 1) * 16);
+                        this.ctx.stroke();
+                    }
+                }
+
+                this.ctx.globalAlpha = 0.18;
+                this.ctx.fillStyle = '#fffbe6';
+                this.ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, 6);
+                this.ctx.globalAlpha = 1;
+                this.ctx.restore();
             } else {
-                this.ctx.fillStyle = '#8B4513';
+                this.ctx.save();
+                this.ctx.shadowColor = '#3e2c16';
+                this.ctx.shadowBlur = 8;
+                const grad = this.ctx.createLinearGradient(obstacle.x, obstacle.y, obstacle.x, obstacle.y + obstacle.height);
+                grad.addColorStop(0, '#c68642');
+                grad.addColorStop(1, '#8b5c2b');
+                this.ctx.fillStyle = grad;
                 this.ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
-                
-                this.ctx.fillStyle = '#A0522D';
-                this.ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, 3);
+
+                this.ctx.globalAlpha = 0.25;
+                this.ctx.fillStyle = '#fffbe6';
+                this.ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, 4);
+                this.ctx.globalAlpha = 1;
+
+                this.ctx.strokeStyle = '#6b3e1d';
+                this.ctx.lineWidth = 2;
+                this.ctx.strokeRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+
+                this.ctx.restore();
             }
         });
     }
