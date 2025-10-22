@@ -21,7 +21,7 @@
     { "x": 710, "y": 230, "width": 50, "height": 20 }
   ],
   "exit": { "x": 740, "y": 40 },
-  "requiredItems": 6,
+  "requiredItems": 5,
   "timeLimit": 50
 }
 
