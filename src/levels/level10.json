@@ -4,14 +4,12 @@
   "background": "bevrijding.png",
   "playerStart": { "x": 50, "y": 400 },
   "collectibles": [
-    { "x": 750, "y": 480, "type": "coin" },      
-    { "x": 650, "y": 400, "type": "gem" },
-    { "x": 550, "y": 320, "type": "coin" },
-    { "x": 450, "y": 240, "type": "special" },
-    { "x": 350, "y": 160, "type": "gem" },      
-    { "x": 250, "y": 220, "type": "special" },
-    { "x": 150, "y": 300, "type": "gem" },
-    { "x": 100, "y": 400, "type": "coin" }  
+    { "x": 130, "y": 400, "type": "coin" },      
+    { "x": 310, "y": 210, "type": "gem" },
+    { "x": 490, "y": 230, "type": "coin" },
+    { "x": 390, "y": 150, "type": "special" },
+    { "x": 610, "y": 310, "type": "coin" },
+    { "x": 700, "y": 400, "type": "special" }
   ],
   "obstacles": [
     { "x": 740, "y": 500, "width": 80, "height": 20, "type": "platform" }, 
@@ -21,9 +19,9 @@
     { "x": 360, "y": 180, "width": 70, "height": 20, "type": "platform" }, 
     { "x": 260, "y": 240, "width": 80, "height": 20, "type": "platform" },
     { "x": 160, "y": 320, "width": 70, "height": 20, "type": "platform" },
-    { "x": 100, "y": 420, "width": 80, "height": 20, "type": "platform" } 
+    { "x": 90, "y": 420, "width": 70, "height": 20, "type": "platform" } 
   ],
   "exit": { "x": 750, "y": 470 },
-  "requiredItems": 6,
+  "requiredItems": 4,
   "timeLimit": 250
 }
