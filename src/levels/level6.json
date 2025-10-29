@@ -11,7 +11,7 @@
     { "x": 480, "y": 170, "type": "gem" },
     { "x": 580, "y": 120, "type": "special" },
     { "x": 680, "y": 90, "type": "gem" },
-    { "x": 730, "y": 50, "type": "special" }
+    { "x": 730, "y": 100, "type": "special" }
   ],
   "obstacles": [
     { "x": 90, "y": 410, "width": 80, "height": 20, "type": "platform" },
