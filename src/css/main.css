@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(/src/img/Castle.png);
+    background-image: url(../img/Castle.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
