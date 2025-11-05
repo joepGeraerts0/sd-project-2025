@@ -10,8 +10,7 @@
     { "x": 380, "y": 220, "type": "special" },
     { "x": 480, "y": 170, "type": "gem" },
     { "x": 580, "y": 120, "type": "special" },
-    { "x": 680, "y": 90, "type": "gem" },
-    { "x": 730, "y": 50, "type": "special" }
+    { "x": 680, "y": 90, "type": "gem" }
   ],
   "obstacles": [
     { "x": 90, "y": 410, "width": 80, "height": 20, "type": "platform" },
@@ -35,6 +34,6 @@
     { "x": 720, "y": 70, "width": 60, "height": 20, "type": "platform" }
   ],
   "exit": { "x": 750, "y": 40 },
-  "requiredItems": 6,
+  "requiredItems": 5,
   "timeLimit": 250
 }
