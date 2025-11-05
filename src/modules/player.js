@@ -78,6 +78,8 @@ class Player {
     player.takeDamage(20);
 }
  
+/* Oke */
+
     
     setupControls() {
         document.addEventListener('keydown', (e) => {
