@@ -44,6 +44,41 @@ class Player {
         this.setupControls();
     }
 
+    takeDamage(amount) {
+    if (!this.isAlive) return;
+
+    this.health -= amount;
+    if (this.health <= 0) {
+        this.health = 0;
+        this.isAlive = false;
+        this.onDeath();
+       }
+    }
+    onDeath() {
+    console.log("Player is dead");
+    // Hier kun je animatie, respawn of game-over logica toevoegen
+}
+  renderHealthBar(ctx) {
+    const barWidth = this.width;
+    const barHeight = 6;
+    const healthRatio = this.health / this.maxHealth;
+
+    ctx.save();
+    ctx.fillStyle = 'black';
+    ctx.fillRect(this.x, this.y - 10, barWidth, barHeight);
+
+    ctx.fillStyle = healthRatio > 0.5 ? 'limegreen' : healthRatio > 0.2 ? 'orange' : 'red';
+    ctx.fillRect(this.x, this.y - 10, barWidth * healthRatio, barHeight);
+    ctx.restore();
+
+   this.renderHealthBar(ctx);
+}
+
+  if (enemyHitsPlayer) {
+    player.takeDamage(20);
+}
+ 
+    
     setupControls() {
         document.addEventListener('keydown', (e) => {
             e.preventDefault();
